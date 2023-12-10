@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" lang="fr" content="Un jeu de lancer de dé">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap" rel="stylesheet">
+    <link href="./dist/style.css" rel="stylesheet">
+    
+    <title>Dice Game</title>
+</head>
+
+<body>
+
+<!--Début création du container de mon jeu de dés-->
+<main>
+    <div class="container">
+    
+    <!-- Création d'une div pour lancer une partie -->
+        <section class="newGame flex py-8 justify-center">
+            <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M23.625 13.5C23.625 7.91016 19.0898 3.375 13.5 3.375C7.91016 3.375 3.375 7.91016 3.375 13.5C3.375 19.0898 7.91016 23.625 13.5 23.625C19.0898 23.625 23.625 19.0898 23.625 13.5Z" stroke="#E67777" stroke-width="1.6875" stroke-miterlimit="10"/>
+            <path d="M13.5 9.28125V17.7188" stroke="#E67777" stroke-width="1.6875" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M17.7188 13.5H9.28125" stroke="#E67777" stroke-width="1.6875" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <p class="text-lg px-2">NEW GAME</p>
+        </section>
+
+    <!--Création du bloc du joueur 1 et de ses points -->
+        <div class="flex">
+
+        <section class="text-center pt-36 w-1/2 flex flex-col items-center">
+            <div class="wrapper flex justify-center">
+                <p class="text-4xl player0">PLAYER 1</p>
+                <div class="turn hide mx-4 my-3"></div>
+            </div>
+
+            <p class="text-6xl text-red-100 my-4" id="globalScore0">0</p>
+            
+                <div class="currentScore bg-red-100 my-52">
+                    <p class="text-black text-xl pt-3">Current</p>
+                    <p class="text-grey-100 text-5xl pt-5" id="current0">0</p>
+                </div>
+        </section>
+        
+    <!-- Création d'une div pour les faces du dé et le lancer de dé-->
+        <div class="flex flex-col items-center">
+            <div class="py-44">
+            <img src="img/dice-5.png" class="diceImages w-20" alt="Face du dé">    
+            </div>
+
+        <div class="flex flex-wrap justify-center">
+            <div class="rollDice flex pt-20 justify-center">
+                <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.5 2.53125C7.4424 2.53125 2.53125 7.4424 2.53125 13.5C2.53125 19.5576 7.4424 24.4688 13.5 24.4688C19.5576 24.4688 24.4688 19.5576 24.4688 13.5C24.4688 7.4424 19.5576 2.53125 13.5 2.53125ZM13.5 19.4062C12.0588 19.4056 10.6675 18.879 9.58707 17.9252C8.50668 16.9714 7.81157 15.6561 7.63225 14.2262L7.16502 14.6934L5.97164 13.5L8.39742 11.0742L10.9049 13.4726L9.73846 14.6918L9.35877 14.329C9.51523 15.0982 9.88252 15.8087 10.4196 16.3812C10.9567 16.9537 11.6423 17.3655 12.4 17.5707C13.1577 17.7759 13.9575 17.7663 14.71 17.543C15.4626 17.3198 16.1382 16.8917 16.6614 16.3065L17.9149 17.4356C17.3579 18.0548 16.6772 18.5501 15.9167 18.8896C15.1562 19.2291 14.3328 19.4051 13.5 19.4062V19.4062ZM18.6042 15.9258L16.0966 13.5264L17.2631 12.3071L17.6249 12.6526C17.4661 11.8864 17.0979 11.1794 16.5613 10.61C16.0247 10.0407 15.3406 9.63134 14.5852 9.42754C13.8298 9.22375 13.0327 9.23349 12.2825 9.45568C11.5323 9.67787 10.8585 10.1038 10.3359 10.6861L9.0798 9.55916C9.83827 8.71419 10.8239 8.10534 11.919 7.80531C13.0141 7.50528 14.1724 7.52674 15.2556 7.86713C16.3388 8.20752 17.3012 8.85247 18.0279 9.72496C18.7545 10.5974 19.2147 11.6606 19.3535 12.7876L19.8339 12.3066L21.0284 13.5L18.6042 15.9258Z" fill="#E67777"/>
+                </svg>   
+                <p class="text-xl pl-3">ROLL DICE</p>
+            </div>                 
+            
+            <div class="hold flex pt-20 justify-center">
+                <svg width="28" height="27" viewBox="0 0 28 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18.2188 9.28125H20.3281C20.8876 9.28125 21.4241 9.50349 21.8197 9.89907C22.2153 10.2947 22.4375 10.8312 22.4375 11.3906V22.3594C22.4375 22.9188 22.2153 23.4553 21.8197 23.8509C21.4241 24.2465 20.8876 24.4688 20.3281 24.4688H7.67188C7.11243 24.4688 6.57591 24.2465 6.18032 23.8509C5.78474 23.4553 5.5625 22.9188 5.5625 22.3594V11.3906C5.5625 10.8312 5.78474 10.2947 6.18032 9.89907C6.57591 9.50349 7.11243 9.28125 7.67188 9.28125H9.78125" stroke="#E67777" stroke-width="1.6875" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9.78125 14.3438L14 18.5625L18.2188 14.3438" stroke="#E67777" stroke-width="1.6875" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M14 2.53125V17.7188" stroke="#E67777" stroke-width="1.6875" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <p class="text-xl pl-3">HOLD</p>
+            </div>
+        </div>
+            
+
+        </div>
+
+    <!--Création du bloc du joueur 2 et de ses points -->
+        <section class="text-center w-1/2 pt-36 flex flex-col items-center">
+            <div class="wrapper flex justify-center">
+                <p class="player1 activePlayer text-4xl">PLAYER 2</p>
+                <div class="turn hide mx-4 my-3"></div>
+            </div>
+            <p class="text-6xl text-red-100 my-4" id="globalScore1">0</p>
+            <div class="currentScore bg-red-100 my-52">
+                <p class="text-black text-xl pt-3">Current</p>
+                <p class="text-grey-100 text-5xl pt-5" id="current1">0</p>
+            </div>
+        </section>
+    
+    </div>
+</div>
+</main>
+
+    <script src="script.js"></script>
+</body>
+</html>
